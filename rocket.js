@@ -16,12 +16,15 @@ function Rocket(dna) {
 			this.hitTarget = true;
 			this.pos = target.copy();
 		}
+		this.checkObstacles();
+		this.checkEdges();
 
 		this.applyForce(this.dna.genes[count]);
-		if (!this.hitTarget) {
+		if (!this.hitTarget && !this.crashed) {
 			this.vel.add(this.acc);
 			this.pos.add(this.vel);
-			this.acc.mult(0);	
+			this.acc.mult(0);
+			this.vel.limit(4);
 		}
 	}
 
@@ -41,6 +44,39 @@ function Rocket(dna) {
 		this.fitness = map(d, 0, width, width, 0);
 		if (this.hitTarget) {
 			this.fitness *= 10;
+		}
+		
+		if (this.crashed) {
+			this.fitness /= 10;
+		}
+	}
+
+	let checkObstacle = function(rocket, obstacle) {
+		return !(
+			rocket.pos.x < obstacle.x              ||
+			rocket.pos.x > obstacle.x + obstacle.w ||
+			rocket.pos.y < obstacle.y              ||
+			rocket.pos.y > obstacle.y + obstacle.h
+		);		
+	}
+
+	this.checkObstacles = function() {
+		for (var i = 0; i < obstacles.length; i++) {
+			if (checkObstacle(this, obstacles[i])) {
+				this.crashed = true;
+			}
+		}
+	}
+
+	this.checkEdges = function() {
+		let hitEdge = (
+			this.pos.x > width  || 
+			this.pos.x < 0      ||
+			this.pos.y > height || 
+			this.pos.y < 0
+		)
+		if (hitEdge) {
+			this.crashed = true;
 		}
 	}
 }

@@ -2,6 +2,7 @@ function Population() {
 	this.rockets = []
 	this.popSize = 100;
 	this.matingPool = [];
+	this.generationCount = 1;
 
 	for (var i = 0; i < this.popSize; i++) {
 		this.rockets[i] = new Rocket();
@@ -48,5 +49,6 @@ function Population() {
 			newRockets[i] = new Rocket(childDNA);
 		}
 		this.rockets = newRockets;
+		this.generationCount++;
 	}
 }
