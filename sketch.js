@@ -1,4 +1,5 @@
 var population;
+var lifespan = 200;
 
 function setup() {
   createCanvas(400, 300);
