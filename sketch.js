@@ -16,8 +16,11 @@ function draw() {
   lifeP.html(count);
   count++;
 
-  if (count == lifespan) {
-    population = new Population();
+  if (count === lifespan) {
+    population.evaluate();
+    population.selection();
+
+    // population = new Population();
     count = 0;
   }
 

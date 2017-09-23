@@ -1,8 +1,8 @@
-function Rocket() {
+function Rocket(dna) {
 	this.pos = createVector(width/2, height);
 	this.vel = createVector();
 	this.acc = createVector();
-	this.dna = new DNA();
+	this.dna = dna ? dna : new DNA();
 	this.fitness = 0;
 
 	this.applyForce = function(force) {
@@ -29,7 +29,7 @@ function Rocket() {
 	}
 
 	this.calcFitness = function() {
-		let d = dist(this.pos, target);
-		this.fitness = 1 / d;
+		let d = dist(this.pos.x, this.pos.y, target.x, target.y);
+		this.fitness = map(d, 0, width, width, 0);
 	}
 }
