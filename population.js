@@ -12,4 +12,10 @@ function Population() {
 			this.rockets[i].show();
 		}
 	}
+
+	this.evaluate = function() {
+		for (var i = 0; i < this.popSize; i++) {
+			this.rockets[i].calcFitness();
+		}
+	}
 }
