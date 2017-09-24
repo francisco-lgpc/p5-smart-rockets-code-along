@@ -42,8 +42,10 @@ function Population() {
 		this.matingPool = [];
 		for (var i = 0; i < this.popSize; i++) {
 			let n = this.rockets[i].fitnessNormalized * 100;
-			for (var j = 0; j < 1.1**n; j++) {
-				this.matingPool.push(this.rockets[i]);
+			if (n > 0.3) {
+				for (var j = 0; j < 1.1**n; j++) {
+					this.matingPool.push(this.rockets[i]);
+				}
 			}
 		}
 	}

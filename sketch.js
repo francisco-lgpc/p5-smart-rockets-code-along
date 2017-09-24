@@ -7,7 +7,7 @@ var count     = 0;
 var lifespan      = 400;
 var popSize       = 50;
 var maxForce      = 0.2;
-var mutationRate  = 0.03;
+var mutationRate  = 0.01;
 
 
 function setup() {
