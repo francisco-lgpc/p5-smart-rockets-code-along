@@ -26,8 +26,6 @@ function draw() {
   if (count === lifespan) {
     population.evaluate();
     population.selection();
-
-    // population = new Population();
     count = 0;
   }
 

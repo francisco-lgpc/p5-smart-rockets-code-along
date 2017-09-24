@@ -5,6 +5,7 @@ function Rocket(dna) {
 	this.dna = dna ? dna : new DNA();
 	this.fitness = 0;
 	this.hitTarget = false;
+	this.timeTaken = null;
 
 	this.applyForce = function(force) {
 		this.acc.add(force);
@@ -15,6 +16,7 @@ function Rocket(dna) {
 		if (d < 10) {
 			this.hitTarget = true;
 			this.pos = target.copy();
+			this.timeTaken = count;
 		}
 		this.checkObstacles();
 		this.checkEdges();
@@ -43,7 +45,7 @@ function Rocket(dna) {
 		let d = dist(this.pos.x, this.pos.y, target.x, target.y);
 		this.fitness = map(d, 0, width, width, 0);
 		if (this.hitTarget) {
-			this.fitness *= 10;
+			this.fitness *= 2000 / this.timeTaken;
 		}
 		
 		if (this.crashed) {
