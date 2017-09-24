@@ -4,6 +4,7 @@ function Rocket(dna) {
 	this.acc = createVector();
 	this.dna = dna ? dna : new DNA();
 	this.fitness = 0;
+	this.fitnessNormalized;
 	this.hitTarget = false;
 	this.timeTaken = null;
 
@@ -43,12 +44,9 @@ function Rocket(dna) {
 
 	this.calcFitness = function() {
 		let d = dist(this.pos.x, this.pos.y, target.x, target.y);
-		this.fitness = map(d, 0, width, width, 0);
+		this.fitness = Math.E**map(d, 0, width, 5, 0);
 		if (this.hitTarget) {
-			console.log(this.timeTaken)
-			console.log(this.fitness)
 			this.fitness *= 2000 / this.timeTaken;
-			console.log(this.fitness)
 		}
 		
 		if (this.crashed) {

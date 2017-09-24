@@ -5,8 +5,9 @@ var obstacles = [];
 var count     = 0;
 
 var lifespan      = 400;
+var popSize       = 50;
 var maxForce      = 0.2;
-var mutationRate  = 0.05;
+var mutationRate  = 0.03;
 
 
 function setup() {

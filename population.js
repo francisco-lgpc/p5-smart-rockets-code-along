@@ -36,16 +36,15 @@ function Population() {
 		)
 
 		for (var i = 0; i < this.popSize; i++) {
-			this.rockets[i].fitness /= maxFit;
+			this.rockets[i].fitnessNormalized = this.rockets[i].fitness / maxFit;
 		}
 
 		this.matingPool = [];
 		for (var i = 0; i < this.popSize; i++) {
-			let n = this.rockets[i].fitness * 100;
-			for (var j = 0; j < n; j++) {
+			let n = this.rockets[i].fitnessNormalized * 100;
+			for (var j = 0; j < 1.1**n; j++) {
 				this.matingPool.push(this.rockets[i]);
 			}
-			this.rockets[i].fitness /= maxFit;
 		}
 	}
 
