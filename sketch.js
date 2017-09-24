@@ -9,18 +9,18 @@ var maxForce = 0.2;
 function setup() {
   createCanvas(400, 300);
   population = new Population();
-  lifeP = createP(count);
-  generationP = createP(population.generationCount);
+  lifeP = createP('Frame Elapsed: ' + count);
+  generationP = createP('Generation: ' + population.generationCount);
   target = createVector(width/2, 50);
   obstacles.push(new Obstacle(100, 150, 200, 10));
-  obstacles.push(new Obstacle(100, 150, 200, 10));
+  maxFitP = createP('')
 }
 
 function draw() {
   background(0);
   population.run();
-  lifeP.html(count);
-  generationP.html(population.generationCount);
+  lifeP.html('Frame Elapsed: ' + count);
+  generationP.html('Generation: ' + population.generationCount);
   count++;
 
   if (count === lifespan) {

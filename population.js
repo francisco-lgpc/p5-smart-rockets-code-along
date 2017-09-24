@@ -3,6 +3,7 @@ function Population() {
 	this.popSize = 100;
 	this.matingPool = [];
 	this.generationCount = 1;
+	this.maxFitGlobal = { fit: 0, generation: 0};
 
 	for (var i = 0; i < this.popSize; i++) {
 		this.rockets[i] = new Rocket();
@@ -23,6 +24,16 @@ function Population() {
 				maxFit = this.rockets[i].fitness;
 			}
 		}
+
+		if (maxFit > this.maxFitGlobal.fit) {
+			this.maxFitGlobal.fit        = maxFit;
+			this.maxFitGlobal.generation = this.generationCount;
+		}
+
+		maxFitP.html(
+			'Max Fitness: ' + round(this.maxFitGlobal.fit).toString() + 
+			' Generation: '  + this.maxFitGlobal.generation.toString()
+		)
 
 		for (var i = 0; i < this.popSize; i++) {
 			this.rockets[i].fitness /= maxFit;
