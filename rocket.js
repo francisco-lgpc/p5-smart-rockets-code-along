@@ -13,7 +13,7 @@ function Rocket(dna) {
 
 	this.update = function() {
 		let d = dist(this.pos.x, this.pos.y, target.x, target.y)
-		if (d < 10) {
+		if (d < 10 && !this.hitTarget) {
 			this.hitTarget = true;
 			this.pos = target.copy();
 			this.timeTaken = count;
@@ -45,7 +45,10 @@ function Rocket(dna) {
 		let d = dist(this.pos.x, this.pos.y, target.x, target.y);
 		this.fitness = map(d, 0, width, width, 0);
 		if (this.hitTarget) {
+			console.log(this.timeTaken)
+			console.log(this.fitness)
 			this.fitness *= 2000 / this.timeTaken;
+			console.log(this.fitness)
 		}
 		
 		if (this.crashed) {

@@ -1,10 +1,13 @@
 var population;
-var lifespan = 400;
-var count    = 0;
 var lifeP;
-var obstacles = [];
 var target;
-var maxForce = 0.2;
+var obstacles = [];
+var count     = 0;
+
+var lifespan      = 400;
+var maxForce      = 0.2;
+var mutationRate  = 0.05;
+
 
 function setup() {
   createCanvas(400, 300);
