@@ -71,6 +71,16 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
+  if (newObstacle.w < 0) {
+    newObstacle.w *= -1;
+    newObstacle.x -= newObstacle.w;
+  }
+
+  if (newObstacle.h < 0) {
+    newObstacle.h *= -1;
+    newObstacle.y -= newObstacle.h;
+  }
+
   obstacles.push(newObstacle);
   newObstacle = null;
 }
