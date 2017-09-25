@@ -36,7 +36,7 @@ function draw() {
   }
 
   for (let i = 0; i < obstacles.length; i++) {
-    obstacles[i].show();
+    obstacles[i].show(mouseX, mouseY);
   }
 
   ellipse(target.x, target.y, 16, 16)
@@ -48,6 +48,18 @@ function draw() {
 
 function mousePressed() {
   newObstacle = new Obstacle(mouseX, mouseY, 0, 0)
+  for (var i = obstacles.length - 1; i >= 0; i--) {
+    let clikedObstacle = !(
+      mouseX < obstacles[i].x                  ||
+      mouseX > obstacles[i].x + obstacles[i].w ||
+      mouseY < obstacles[i].y                  ||
+      mouseY > obstacles[i].y + obstacles[i].h
+    )
+
+    if (clikedObstacle) {
+      obstacles.splice(i, 1);
+    }  
+  }
 }
 
 function mouseDragged() {
