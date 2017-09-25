@@ -1,7 +1,7 @@
 function DNA(genes) {
 	let randomGenes = function() {
 		let genes = [];
-		for (var i = 0; i < lifespan; i++) {
+		for (let i = 0; i < lifespan; i++) {
 			genes[i] = p5.Vector.random2D();
 			genes[i].setMag(maxForce);
 		}
@@ -13,7 +13,7 @@ function DNA(genes) {
 	this.crossover = function(partner) {
 		let newGenes = [];
 		let midPoint = floor(random(this.genes.length));
-		for (var i = 0; i < this.genes.length; i++) {
+		for (let i = 0; i < this.genes.length; i++) {
 			if (i > midPoint) {
 				newGenes[i] = this.genes[i];
 			} else {
@@ -24,7 +24,7 @@ function DNA(genes) {
 	}
 
 	this.mutation = function() {
-		for (var i = 0; i < this.genes.length; i++) {
+		for (let i = 0; i < this.genes.length; i++) {
 			if (random(1) < mutationRate) {
 				this.genes[i] = p5.Vector.random2D();
 				this.genes[i].setMag(maxForce);

@@ -1,13 +1,13 @@
-var population;
-var lifeP;
-var target;
-var obstacles = [];
-var count     = 0;
+let population;
+let lifeP;
+let target;
+let obstacles = [];
+let count     = 0;
 
-var lifespan      = 400;
-var popSize       = 50;
-var maxForce      = 0.2;
-var mutationRate  = 0.01;
+const lifespan      = 400;
+const popSize       = 50;
+const maxForce      = 0.2;
+const mutationRate  = 0.01;
 
 
 function setup() {
@@ -33,7 +33,7 @@ function draw() {
     count = 0;
   }
 
-  for (var i = 0; i < obstacles.length; i++) {
+  for (let i = 0; i < obstacles.length; i++) {
     obstacles[i].show();
   }
 

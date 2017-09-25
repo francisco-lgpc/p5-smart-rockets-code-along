@@ -64,7 +64,7 @@ function Rocket(dna) {
 	}
 
 	this.checkObstacles = function() {
-		for (var i = 0; i < obstacles.length; i++) {
+		for (let i = 0; i < obstacles.length; i++) {
 			if (checkObstacle(this, obstacles[i])) {
 				this.crashed = true;
 			}
