@@ -5,6 +5,7 @@ let obstacles = [];
 let count     = 0;
 let newObstacle;
 
+const targetSize    = 16;
 const lifespan      = 400;
 const popSize       = 50;
 const maxForce      = 0.2;
@@ -39,7 +40,7 @@ function draw() {
     obstacles[i].show(mouseX, mouseY);
   }
 
-  ellipse(target.x, target.y, 16, 16)
+  ellipse(target.x, target.y, targetSize, targetSize)
 
   if (newObstacle) {
     rect(newObstacle.x, newObstacle.y, newObstacle.w, newObstacle.h)
