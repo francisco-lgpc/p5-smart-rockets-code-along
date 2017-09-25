@@ -36,9 +36,10 @@ function Rocket(dna) {
 		noStroke();
 		fill(255, 150);
 		translate(this.pos.x, this.pos.y);
-		rotate(this.vel.heading());
-		rectMode(CENTER);
-		rect(0, 0, 25, 5);
+		rotate(this.vel.heading() - PI/2);
+		triangle(0, 0, 4, 20, 8, 0);
+		fill(0, 200);
+		ellipse(4, 0, 6, 8);
 		pop();
 	}
 
