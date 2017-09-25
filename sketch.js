@@ -39,10 +39,12 @@ function draw() {
   for (let i = 0; i < obstacles.length; i++) {
     obstacles[i].show(mouseX, mouseY);
   }
-
+  
+  fill(255)
   ellipse(target.x, target.y, targetSize, targetSize)
 
   if (newObstacle) {
+    fill(0, 203, 29, 25)
     rect(newObstacle.x, newObstacle.y, newObstacle.w, newObstacle.h)
   }
 }
