@@ -5,6 +5,6 @@ function Obstacle(x, y, w, h) {
 	this.h = h;
 
 	this.show = function() {
-		rect(x, y, w, h);
+		rect(this.x, this.y, this.w, this.h);
 	}
 }
