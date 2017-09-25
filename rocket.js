@@ -2,6 +2,8 @@ function Rocket(dna) {
 	this.pos = createVector(width/2, height);
 	this.vel = createVector();
 	this.acc = createVector();
+	this.h   = 20;
+	this.w   = 8;
 	this.dna = dna ? dna : new DNA();
 	this.fitness = 0;
 	this.fitnessNormalized;
@@ -35,11 +37,11 @@ function Rocket(dna) {
 		push();
 		noStroke();
 		fill(255, 150);
-		translate(this.pos.x, this.pos.y);
+		translate(this.pos.x + this.w / 2, this.pos.y + this.h);
 		rotate(this.vel.heading() - PI/2);
-		triangle(0, 0, 4, 20, 8, 0);
+		triangle(0, 0, this.w / 2, this.h, this.w, 0);
 		fill(0, 200);
-		ellipse(4, 0, 6, 8);
+		ellipse(this.w / 2, 0, this.w * 0.75, this.w);
 		pop();
 	}
 
